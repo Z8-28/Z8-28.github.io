@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Web_Vistas.css" />
+    <link rel="stylesheet" href="../CSS/Web_maqueta.css" />
+    <title>Multi Commodities</title>
+</head>
+<body>
+    <div id="head">
+        <button id="menu_button" onclick="menu_size()">Ocultar Menu</button>
+    </div>
+    <div id="main_screen">
+        <div id="menu">
+            <button class="button_menu" onclick="geo()">Geolocalizacion</button>
+            <button class="button_menu" onclick="read()">Leer Boleta</button>
+            <button class="button_menu" onclick="show()">Mostrar Boleta</button>
+        </div>
+        <div id="sub_screen">
+            <!------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------>
+
+            <div style="width: 90%;" class="centred_x">
+                <div class="card">
+                    <h2 class="card-header">Sipsmart Truck</h2>
+                    <div class="card-body">
+                        <form class="form">
+                            <div class="responsive_screen_1">
+                                <div class="responsive_item">
+                                    <input type="text" class="input" id="latitud" placeholder="latitud" /><br />
+                                    <input type="text" class="input" id="longitud" placeholder="longitud" /><br />
+                                    <button class="button input" type="button" onclick="position()">Actualizar Ubicacion</button><br />
+                                    <button class="button input" type="button" onclick="search_by_location()">Registrar Ubicacion</button><br />
+                                    <button class="button input" type="button" onclick="del_all()">Clear Cache</button><br />
+                                    <button class="button input" type="button" onclick="editar()">Editar posicion</button><br />
+                                </div>
+                                <div class="responsive_item">
+                                    <label class="label">Geolocalizacon</label><br />
+                                    <div class="map_container">
+                                        <iframe class="map" id="mapa" src="">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="../JS/script__geo_loc.js"></script>
+    <script src="../JS/script__redirect.js"></script>
+    <script src="../JS/script__index.js"></script>
+</body>
+</html>
