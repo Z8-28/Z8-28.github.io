@@ -102,8 +102,8 @@ function actualizar_interface() {
     const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
     const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
-    const spans = camera_setings.getElementsByTagName("span");
+    const camera_setings = document.getElementById("html5-qrcode-select-camera");
+    const values = camera_setings.getElementsByTagName("option");
     //const camera_container = document.getElementById("my-qr-reder__scan_region");
     //const camera_video = camera_container.getElementsByTagName("video")[0];
 
@@ -115,13 +115,19 @@ function actualizar_interface() {
     //    console.log(camera_video);
     //}
 
-    if (spans) {
+    if (values) {
         try {
             console.log("++**************************************");
-            console.log(spans[0]);
-            console.log("--**************************************");
-            console.log(spans[1]);
-            spans[1].hidden();
+            for (let x = 0; x < values.length; x++) {
+                aux = values[x].innerHTML.split("");
+                aux_1 = "";
+                for (let y = 0; y < 12; y++) {
+                    aux_1 += aux[y];
+                }
+                if (aux_1 == "Facing back") {
+                    select.value = values[x]
+                }
+            }
         } catch (e) {
             console.log(e);
         }
