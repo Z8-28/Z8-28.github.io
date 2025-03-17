@@ -102,17 +102,9 @@ function actualizar_interface() {
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
     const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
     const spans = camera_setings.getElementsByTagName("span");
-    const camera_container = document.getElementById("my-qr-reder__scan_region");
-    const camera_video = camera_container.getElementsByTagName("video")[0];
 
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
-
-
-    if (camera_video) {
-        camera_video.className = "align_mid";
-    }
-
 
     if (spans[0]) {
         try {
