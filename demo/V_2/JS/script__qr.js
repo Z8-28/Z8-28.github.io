@@ -114,6 +114,7 @@ function actualizar_interface() {
     //}
 
     if (spans[0]) {
+        console.log(spans[0]);
         try {
             spans[0].remove();
             spans[1].remove();
