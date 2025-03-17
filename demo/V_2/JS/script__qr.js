@@ -106,10 +106,15 @@ function actualizar_interface() {
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
 
-    if (spans) {
+    if (spans[0]) {
     //    console.log(`La cosola dice:\n${spans[1]}`);
     //    spans[0].remove();
     //    spans[1].remove();
+        //console.log("******************************");
+        console.log(spans[0]);
+        //console.lgo("******************************");
+        //console.log(spans[1]);
+        //console.log("------------------------------");
         try {
             spans[0].remove();
             spans[1].remove();
