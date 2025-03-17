@@ -113,11 +113,11 @@ function actualizar_interface() {
     //    console.log(camera_video);
     //}
 
-    if (spans[1]) {
+    if (spans[0]) {
         try {
             console.log("**************************************");
-            console.log(spans[1]);
-            spans[1].remove();
+            console.log(spans[0]);
+            spans[0].remove();
         } catch (e) {
             console.log(e);
         }
