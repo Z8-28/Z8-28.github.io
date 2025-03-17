@@ -88,7 +88,7 @@ async function actualizar_pantalla() { //Funcion asincrona que actualiza la inte
 
 
 function actualizar_interface() {
-    console.log("Dev-A")
+    console.log("Dev-B")
     const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
     const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
     const qr_container = document.getElementById("my-qr-reader");   //Contenedro QR
@@ -101,24 +101,44 @@ function actualizar_interface() {
     const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
     const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
-    const spans = camera_setings.getElementsByTagName("span");
+    //const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
+    //const spans = camera_setings.getElementsByTagName("span");
+    const camera_select = document.getElementById("html5-qrcode-select-camera");
 
+    var camera_options
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
 
-    if (spans) {
-        try {
-            console.log("span 0");
-            console.log(spans[0]);
-            console.log("span 1");
-            console.log(spans[1]);
-            /*spans[0].remove();*/
-            /*spans[1].remove();*/
+    if (camera_select) {
+        camera_options = camera_select.getElementsByTagName("option");
+        try {//Facing back
+            for (let x = 0; x < camera_options.length; x++) {
+                aux = camera_options[x].split("");
+                aux_1 = ""
+                for (let y = 0; y < 11; y++) {
+                    aux_1 += aux[y]
+                }
+                if (aux_1 == "Facing back") {
+                    camera_select.value = camera_options[0];
+                }
+            }
         } catch (e) {
-            //console.log(e)
+            console.log(e)
         }
     }
+
+    //if (spans) {
+    //    try {
+    //        console.log("span 0");
+    //        console.log(spans[0]);
+    //        console.log("span 1");
+    //        console.log(spans[1]);
+    //        /*spans[0].remove();*/
+    //        /*spans[1].remove();*/
+    //    } catch (e) {
+    //        //console.log(e)
+    //    }
+    //}
 
     if (button_camera) {//Si se detecto el boton de usar camara
         button_camera.innerHTML = "Activar Camara";
