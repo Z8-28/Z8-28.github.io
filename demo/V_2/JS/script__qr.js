@@ -114,13 +114,15 @@ function actualizar_interface() {
     //}
 
     if (spans[0]) {
-        console.log("Protocolo de spans")
+        console.log("Protocolo de spans");
         console.log(spans[0]);
+        console.log("******************");
+        console.log(spans[1]);
         try {
-            spans[0].remove();
-            spans[1].remove();
+            //spans[0].remove();
+            //spans[1].remove();
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
     }
 
