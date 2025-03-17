@@ -107,7 +107,7 @@ function actualizar_interface() {
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
 
-    if (spans[0]) {
+    if (spans) {
         try {
             console.log("span 0");
             console.log(spans[0]);
