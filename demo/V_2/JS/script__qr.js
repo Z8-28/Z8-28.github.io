@@ -108,8 +108,12 @@ function actualizar_interface() {
 
     if (spans[0]) {
         try {
+            console.log("span 0");
+            console.log(spans[0]);
+            console.log("span 1");
+            console.log(spans[1]);
             /*spans[0].remove();*/
-            spans[1].remove();
+            /*spans[1].remove();*/
         } catch (e) {
             //console.log(e)
         }
