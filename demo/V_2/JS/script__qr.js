@@ -117,7 +117,7 @@ function actualizar_interface() {
 
     if (spans) {
         try {
-            console.log("**************************************");
+            console.log("++**************************************");
             console.log(spans[0]);
             spans[0].remove();
         } catch (e) {
