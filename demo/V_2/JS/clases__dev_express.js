@@ -73,6 +73,11 @@ $(document).ready(function () {
     initButton(".button_green", "success");
     //initButton(".button_blue", "default");
 
+    /*
+       Ejemplo de sintaxis html para usar esta clase:
+            <div class="button_green" data-text="Boton 1"></div>
+     */
+
 
 
     //*****************************************************************************************************************************************
@@ -89,19 +94,11 @@ $(document).ready(function () {
             //console.log(`La consola muestra: ${(read=="1")}`)
             $(this).dxTextBox({
                 placeholder: "",
-                readOnly: (read == "1"),
-                inputAttr: { 'id': labelText },
-                label: labelText,
-                labelMode: 'floating',
+                readOnly: (read == "1"),//Si se envio el parametro 1 el textBox sera solo de lectura, si se envia otro parametro sera de escritura y lectura
+                inputAttr: { 'id': labelText },//El id del input sera el valor de "labetText" (el sustituto de placeholder)
+                label: labelText, //Sustituto del placeholder
+                labelMode: 'floating',//Animacion del label
             });
-
-            //// Verificar si ya hay un valor en el input y forzar que el label flote
-            //var textBoxInstance = $(this).dxTextBox('instance');
-            //var inputValue = textBoxInstance.option("value");
-            //// Si el valor no está vacío, forzar el movimiento del label
-            //if (inputValue && inputValue !== "") {
-            //    textBoxInstance._setLabelMode("floating");
-            //}
 
         });
     }
@@ -118,7 +115,7 @@ $(document).ready(function () {
 
     //Seteo de los dataGrids
     $(".mc_grid_1").dxDataGrid({
-        dataSource: Data_1, //Fuente de datos
+        dataSource: Data_1, //Datos para llenar el grid 1
         columns: [//Seteo de columnas
             { dataField: "Field", caption: "Campo" }, // Primera columna: nombre del campo
             { dataField: "Value", caption: "Valor" }  // Segunda columna: valor del campo
@@ -132,9 +129,9 @@ $(document).ready(function () {
         sorting: { mode: "none" } // Desactivamos el ordenamiento
     });
     $(".mc_grid_2").dxDataGrid({
-        dataSource: data_grid_2,
-        columns: [
-            { dataField: "Group", caption: "Peso", groupIndex: "0" },
+        dataSource: data_grid_2,//Datos para llenar el grid 2
+        columns: [//Seteo de columnas del grid 2
+            { dataField: "Group", caption: "Peso", groupIndex: "0" },//Se agrupan los datos por categoria de: Peso
             { dataField: "Title", caption: "Titulo" },
             { dataField: "Value", caption: "Valor" }
         ],
@@ -146,7 +143,7 @@ $(document).ready(function () {
         }
     });
     $(".mc_grid_3").dxDataGrid({
-        dataSource: Data_3,
+        dataSource: Data_3,//Datos para llenar el grid 3
         columns: [
             { dataField: "Field", caption: "Campo" }, // Primera columna: nombre del campo
             { dataField: "Value", caption: "Valor" }  // Segunda columna: valor del campo
