@@ -88,7 +88,7 @@ async function actualizar_pantalla() { //Funcion asincrona que actualiza la inte
 
 
 function actualizar_interface() {
-    console.log("Dev-B");
+    console.log("Dev-C");
 
     const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
     const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
@@ -118,16 +118,16 @@ function actualizar_interface() {
     if (values) {
         try {
             console.log("++**************************************");
-            for (let x = 0; x < values.length; x++) {
-                //aux = values[x].innerHTML.split("");
-                //aux_1 = "";
-                //for (let y = 0; y < 12; y++) {
-                //    aux_1 += aux[y];
-                //}
-                //if (aux_1 == "Facing back") {
-                //    select.value = values[x]
-                //}
-            }
+            //for (let x = 0; x < values.length; x++) {
+            //    //aux = values[x].innerHTML.split("");
+            //    //aux_1 = "";
+            //    //for (let y = 0; y < 12; y++) {
+            //    //    aux_1 += aux[y];
+            //    //}
+            //    //if (aux_1 == "Facing back") {
+            //    //    select.value = values[x]
+            //    //}
+            //}
         } catch (e) {
             console.log(e);
         }
