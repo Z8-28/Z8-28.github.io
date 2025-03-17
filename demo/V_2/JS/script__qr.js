@@ -88,8 +88,6 @@ async function actualizar_pantalla() { //Funcion asincrona que actualiza la inte
 
 
 function actualizar_interface() {
-    console.log("Dev-C");
-
     const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
     const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
     const qr_container = document.getElementById("my-qr-reader");   //Contenedro QR
@@ -102,34 +100,18 @@ function actualizar_interface() {
     const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
     const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    const camera_setings = document.getElementById("html5-qrcode-select-camera");
-    const values = camera_setings.getElementsByTagName("option");
-    //const camera_container = document.getElementById("my-qr-reder__scan_region");
-    //const camera_video = camera_container.getElementsByTagName("video")[0];
+    const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
+    const spans = camera_setings.getElementsByTagName("span");
 
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
 
-    //if (camera_video) {
-    //    //camera_video.className = "align_mid";
-    //    console.log(camera_video);
-    //}
-
-    if (values) {
+    if (spans[0]) {
         try {
-            console.log("++**************************************");
-            //for (let x = 0; x < values.length; x++) {
-            //    //aux = values[x].innerHTML.split("");
-            //    //aux_1 = "";
-            //    //for (let y = 0; y < 12; y++) {
-            //    //    aux_1 += aux[y];
-            //    //}
-            //    //if (aux_1 == "Facing back") {
-            //    //    select.value = values[x]
-            //    //}
-            //}
+            spans[0].remove();
+            spans[1].remove();
         } catch (e) {
-            console.log(e);
+            //console.log(e)
         }
     }
 
