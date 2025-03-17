@@ -88,6 +88,8 @@ async function actualizar_pantalla() { //Funcion asincrona que actualiza la inte
 
 
 function actualizar_interface() {
+    console.log("Dev-B");
+
     const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
     const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
     const qr_container = document.getElementById("my-qr-reader");   //Contenedro QR
@@ -115,7 +117,6 @@ function actualizar_interface() {
 
     if (spans) {
         try {
-            console.log("Dev-A");
             console.log("**************************************");
             console.log(spans[0]);
             spans[0].remove();
