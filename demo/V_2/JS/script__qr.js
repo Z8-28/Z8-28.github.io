@@ -113,8 +113,9 @@ function actualizar_interface() {
     //    console.log(camera_video);
     //}
 
-    if (spans[0]) {
+    if (spans) {
         try {
+            console.log("Dev-A");
             console.log("**************************************");
             console.log(spans[0]);
             spans[0].remove();
