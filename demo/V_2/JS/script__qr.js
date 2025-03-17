@@ -100,8 +100,8 @@ function actualizar_interface() {
     const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
     const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    //const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
-    //const spans = camera_setings.getElementsByTagName("span");
+    const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
+    const spans = camera_setings.getElementsByTagName("span");
     //const camera_container = document.getElementById("my-qr-reder__scan_region");
     //const camera_video = camera_container.getElementsByTagName("video")[0];
 
@@ -113,14 +113,14 @@ function actualizar_interface() {
     //    console.log(camera_video);
     //}
 
-    //if (spans[0]) {
-    //    try {
-    //        //spans[0].remove();
-    //        //spans[1].remove();
-    //    } catch (e) {
-    //        //console.log(e)
-    //    }
-    //}
+    if (spans[0]) {
+        try {
+            //spans[0].remove();
+            //spans[1].remove();
+        } catch (e) {
+            //console.log(e)
+        }
+    }
 
     if (button_camera) {//Si se detecto el boton de usar camara
         button_camera.innerHTML = "Activar Camara";
