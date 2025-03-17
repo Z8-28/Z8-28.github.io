@@ -100,14 +100,14 @@ function actualizar_interface() {
     const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
     const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
-    const spans = camera_setings.getElementsByTagName("span");
+    const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr"); //Contenedor de los Spans que permiten seleccionar camara
+    const spans = camera_setings.getElementsByTagName("span"); //Spans que permiten seleccionar camara
 
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
 
-    if (spans[0]) {
-        try {
+    if (spans[0]) { //Si se delecto la presencia de los spans
+        try {// Intentar remover los spans no desceados
             spans[0].remove();
             spans[1].remove();
         } catch (e) {
