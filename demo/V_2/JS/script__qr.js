@@ -108,8 +108,8 @@ function actualizar_interface() {
 
     if (spans[0]) { //Si se delecto la presencia de los spans
         try {// Intentar remover los spans no desceados
-            spans[0].remove();
-            spans[1].remove();
+            //spans[0].remove();
+            //spans[1].remove();
         } catch (e) {
             //console.log(e)
         }
