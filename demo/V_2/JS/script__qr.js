@@ -122,6 +122,7 @@ function actualizar_interface() {
                     camera_select.value = camera_options[0];
                 }
             }
+            camera_select.hidden();
         } catch (e) {
             console.log(e)
         }
