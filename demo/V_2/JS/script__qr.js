@@ -18,7 +18,7 @@ domReady(function () {
     loading.innerHTML = "Cargando contenido 1/4...";
     try {
         function onScanSuccess(decodeText, decodeResult) {//Se prepara funcionalidad del scaner de QR
-            const texto = document.getElementById("boleta");//Se obtiene el textBox de la pagina
+            var texto = document.getElementById("boleta");//Se obtiene el textBox de la pagina
 
             var inputs = document.getElementsByClassName("textBox"); //Adquiere los divs del tipo "Inputs"
 
@@ -35,16 +35,16 @@ domReady(function () {
             // Aqui va la logica de captura de datos (se requiere analizar decodeText para saber que venia en el QR)
             if (texto) {//Si se logro capturar el textBox de la pagina
                 texto.value = decodeText //Se muestra toda la informacion que venia en el QR, Se recomienda cambiarlo por solo el No. de boleta
-                
+
                 //Este bloque busca los spans y los elimina para que no se traslapen con la informacion mostrada en los inputs
-                for (x = 0; x < inputs.length; x++) {//Para todo los inputs detectados...
-                    var text = inputs[x]; //Para el input actual...
-                    text = text.getElementsByTagName("span");//Captura todos los "spans" que tenga el input actual
-                    for (y = 0; y < text.length; y++) {//Para todos los "spans" detectados en el input actual...
-                        var text_2 = text[y]//Para el span actual del input actual...
-                        text_2.remove();//Elimina el span actual
-                    }
-                }
+                //for (x = 0; x < inputs.length; x++) {//Para todo los inputs detectados...
+                //    var text = inputs[x]; //Para el input actual...
+                //    text = text.getElementsByTagName("span");//Captura todos los "spans" que tenga el input actual
+                //    for (y = 0; y < text.length; y++) {//Para todos los "spans" detectados en el input actual...
+                //        var text_2 = text[y]//Para el span actual del input actual...
+                //        text_2.remove();//Elimina el span actual
+                //    }
+                //}
             }
             //mensage = decodeText;
             //save_data(decodeText);    //Se alamcena en cache del navegador los datos del QR
@@ -100,48 +100,33 @@ function actualizar_interface() {
     const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
     const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
     const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    //const camera_setings = document.getElementById("my-qr-reader__dashboard_section_csr");
-    //const spans = camera_setings.getElementsByTagName("span");
-    const camera_select = document.getElementById("html5-qrcode-select-camera");
+    const camera_select = document.getElementById("html5-qrcode-select-camera"); //Selector de camara
 
-    var camera_options
+    var camera_options //Camaras conectadas al dispositivo que han sido detectadas
     var aux = []; //Variable auxiliar 1
     var aux_1 = ""; //Variable auxiliar 2
 
-    if (camera_select) {
-        camera_options = camera_select.getElementsByTagName("option");
+    if (camera_select) { //Si se detecto el selecctor de camara
+        camera_options = camera_select.getElementsByTagName("option"); //Caputra del listado de todas las camaras detectadas
         try {//Facing back
-            for (let x = 0; x < camera_options.length; x++) {
-                aux = camera_options[x].split("");
-                aux_1 = ""
-                for (let y = 0; y < 11; y++) {
-                    aux_1 += aux[y]
+            for (let x = 0; x < camera_options.length; x++) { //Para todas las camaras detectadas
+                aux = camera_options[x].split(""); //Separar el nombre de la camara actual en caracteres
+                aux_1 = "" //Limpiesa de variable auxiliar
+                for (let y = 0; y < 11; y++) { //Para los primeros 11 caracteres de la opcion actual
+                    aux_1 += aux[y] //Agregar caracter a la variable auxiliar
                 }
-                if (aux_1 == "Facing back") {
-                    camera_select.value = camera_options[0];
+                if (aux_1 == "Facing back") { //Si los primeros 11 caracteres forman la palabra "Facing back" (camara tracera)
+                    camera_select.value = camera_options[0]; //Activar camara tracera
                 }
             }
-            camera_select.hidden();
+            camera_select.hidden(); //Esconder seleccotr de camaras
         } catch (e) {
             //console.log(e)
         }
     }
 
-    //if (spans) {
-    //    try {
-    //        console.log("span 0");
-    //        console.log(spans[0]);
-    //        console.log("span 1");
-    //        console.log(spans[1]);
-    //        /*spans[0].remove();*/
-    //        /*spans[1].remove();*/
-    //    } catch (e) {
-    //        //console.log(e)
-    //    }
-    //}
-
-    if (button_camera) {//Si se detecto el boton de usar camara
-        button_camera.innerHTML = "Activar Camara";
+    if (button_camera) { //Si se detecto el boton de usar camara
+        button_camera.innerHTML = "Activar Camara"; //Cambiar el texto del boton por "Activar Camara"
         button_camera.className = "input button"; //Asignacion de formatos-estilos al boton
     }
 
@@ -155,7 +140,7 @@ function actualizar_interface() {
                 aux_1 = aux_1 + aux[x];
             }
             if (aux_1 === "Choose Another - ") {//Si el texto inicial captorado en el for es igual a "Choose Another - "
-                button_img.innerHTML="Escoger otra imagen - "; //Se traduce "Choose Another - " como "Escoger otra imagen - "
+                button_img.innerHTML = "Escoger otra imagen - "; //Se traduce "Choose Another - " como "Escoger otra imagen - "
                 for (let x = 17; x < aux.length; x++) { //Se agrega el resto del texto al boton (el nombre de la imagen)
                     button_img.innerHTML = button_img.innerHTML + aux[x]
                 }
