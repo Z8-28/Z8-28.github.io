@@ -83,12 +83,11 @@ async function actualizar_pantalla() { //Funcion asincrona que actualiza la inte
             //flag.innerHTML = e
             clearInterval(intervalId); // Detener el intervalo en caso de error
         }
-    }, 1);//Asignacion de tiempo de espera en 1ms entre cada actualizacion de pantalla
+    }, 500);//Asignacion de tiempo de espera en 1ms entre cada actualizacion de pantalla
 }
 
 
 function actualizar_interface() {
-    console.log("Dev-C")
     const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
     const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
     const qr_container = document.getElementById("my-qr-reader");   //Contenedro QR
@@ -124,7 +123,7 @@ function actualizar_interface() {
             }
             camera_select.hidden();
         } catch (e) {
-            console.log(e)
+            //console.log(e)
         }
     }
 
