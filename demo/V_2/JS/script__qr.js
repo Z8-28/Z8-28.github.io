@@ -87,107 +87,111 @@ async function actualizar_pantalla() { //Funcion asincrona que actualiza la inte
 
 
 function actualizar_interface() {
-    const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
-    const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
-    const qr_container = document.getElementById("my-qr-reader");   //Contenedro QR
-    const info = qr_container.getElementsByTagName("div"); //Informacion sobre el escaner y sus creadores
-    const more_info = info[0].getElementsByTagName("img"); //Informacion sobre el escaner y sus creadores
-    const button_camera = document.getElementById("html5-qrcode-button-camera-permission"); //Boton de usar camara para escanear
-    const button_img = document.getElementById("html5-qrcode-button-file-selection"); //Boton de usar imagen almacenada en dispositivo
-    const div_1 = document.getElementById("my-qr-reader__dashboard_section"); //Constante auxiliar
-    const img_container = div_1.getElementsByTagName("div")[3]; //Constante auxiliar
-    const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
-    const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
-    const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
-    const camera_select = document.getElementById("html5-qrcode-select-camera"); //Selector de camara
+    try {
+        const link = document.getElementById("html5-qrcode-anchor-scan-type-change"); //Link para alternar entre usar la camara y usar una imagen
+        const alerta = document.getElementById("my-qr-reader__header_message"); //Mensaje de alerta del QR
+        const qr_container = document.getElementById("my-qr-reader");   //Contenedro QR
+        const info = qr_container.getElementsByTagName("div"); //Informacion sobre el escaner y sus creadores
+        const more_info = info[0].getElementsByTagName("img"); //Informacion sobre el escaner y sus creadores
+        const button_camera = document.getElementById("html5-qrcode-button-camera-permission"); //Boton de usar camara para escanear
+        const button_img = document.getElementById("html5-qrcode-button-file-selection"); //Boton de usar imagen almacenada en dispositivo
+        const div_1 = document.getElementById("my-qr-reader__dashboard_section"); //Constante auxiliar
+        const img_container = div_1.getElementsByTagName("div")[3]; //Constante auxiliar
+        const img_label = img_container.getElementsByTagName("div")[0]; //Label que ayuda a saber como usar el analizador de imagenes
+        const btn_start_scann = document.getElementById("html5-qrcode-button-camera-start"); //Boton para comenzar a escanear con la camara
+        const btn_stop_scann = document.getElementById("html5-qrcode-button-camera-stop"); //Boton para parar de escanear con la camara
+        const camera_select = document.getElementById("html5-qrcode-select-camera"); //Selector de camara
 
-    var camera_options //Camaras conectadas al dispositivo que han sido detectadas
-    var aux = []; //Variable auxiliar 1
-    var aux_1 = ""; //Variable auxiliar 2
+        var camera_options //Camaras conectadas al dispositivo que han sido detectadas
+        var aux = []; //Variable auxiliar 1
+        var aux_1 = ""; //Variable auxiliar 2
 
-    if (camera_select) { //Si se detecto el selecctor de camara
-        camera_options = camera_select.getElementsByTagName("option"); //Caputra del listado de todas las camaras detectadas
-        try {//Facing back
-            for (let x = 0; x < camera_options.length; x++) { //Para todas las camaras detectadas
-                aux = camera_options[x].split(""); //Separar el nombre de la camara actual en caracteres
-                aux_1 = "" //Limpiesa de variable auxiliar
-                for (let y = 0; y < 11; y++) { //Para los primeros 11 caracteres de la opcion actual
-                    aux_1 += aux[y] //Agregar caracter a la variable auxiliar
+        if (camera_select) { //Si se detecto el selecctor de camara
+            camera_options = camera_select.getElementsByTagName("option"); //Caputra del listado de todas las camaras detectadas
+            try {//Facing back
+                for (let x = 0; x < camera_options.length; x++) { //Para todas las camaras detectadas
+                    aux = camera_options[x].split(""); //Separar el nombre de la camara actual en caracteres
+                    aux_1 = "" //Limpiesa de variable auxiliar
+                    for (let y = 0; y < 11; y++) { //Para los primeros 11 caracteres de la opcion actual
+                        aux_1 += aux[y] //Agregar caracter a la variable auxiliar
+                    }
+                    if (aux_1 == "Facing back") { //Si los primeros 11 caracteres forman la palabra "Facing back" (camara tracera)
+                        camera_select.value = camera_options[0]; //Activar camara tracera
+                    }
                 }
-                if (aux_1 == "Facing back") { //Si los primeros 11 caracteres forman la palabra "Facing back" (camara tracera)
-                    camera_select.value = camera_options[0]; //Activar camara tracera
-                }
-            }
-            camera_select.hidden(); //Esconder seleccotr de camaras
-        } catch (e) {
-            //console.log(e)
-        }
-    }
-
-    if (button_camera) { //Si se detecto el boton de usar camara
-        button_camera.innerHTML = "Activar Camara"; //Cambiar el texto del boton por "Activar Camara"
-        button_camera.className = "input button"; //Asignacion de formatos-estilos al boton
-    }
-
-    if (button_img) {//Si se detecto el boton de usar imagen, se reescribe/traduce el texto del boton a espanol
-        if (button_img.innerHTML === "Choose Image - No image choosen") {//Si es la primera ves que aparece el boton
-            button_img.innerHTML = "Buscar imagen"; //Se traduce todo como "Buscar imagen"
-        } else if (button_img.innerHTML != "Buscar imagen") { //Si no es la primera ves que aparece el boton
-            aux = button_img.innerHTML.split(""); //Se captura el texto del boton (este es de interes ya que contiene el nombre de la imagen)
-            aux_1 = ""; //Se solicita que se separe el texto en intervalos de caracteres
-            for (let x = 0; x < 17; x++) {//Se captura el texto inicial del boton
-                aux_1 = aux_1 + aux[x];
-            }
-            if (aux_1 === "Choose Another - ") {//Si el texto inicial captorado en el for es igual a "Choose Another - "
-                button_img.innerHTML = "Escoger otra imagen - "; //Se traduce "Choose Another - " como "Escoger otra imagen - "
-                for (let x = 17; x < aux.length; x++) { //Se agrega el resto del texto al boton (el nombre de la imagen)
-                    button_img.innerHTML = button_img.innerHTML + aux[x]
-                }
+                camera_select.hidden(); //Esconder seleccotr de camaras
+            } catch (e) {
+                //console.log(e)
             }
         }
-        button_img.className = "input button";//Se formatea el estilo del boton
-    }
 
-    if (qr_container) { //Si se encontro el contenedor del QR, se setean sus propiedades
-        qr_container.style.border = "0px";
-        qr_container.style.width = "300px";
-    }
-
-    if (link) {//Si se encontro el link para alternar entre usar una imagen y usar la camara
-        link.innerHTML = "usar otra opcion"; //Se traduce el texto como "Usar otra opcion", se opto por un texto generico para simplificar elcodigo
-    }
-
-    if (more_info && first) { //Si es la primera ves que se actualiza la pagina y se encontro los iconos de "mas informacion"
-        more_info[0].remove(); //Se eliminan los iconos-botones-textos de "mas informacion"
-        first = false; //Ya no es la primera ves que se ejecuta este codigo
-    } else {
-        //console.clear();
-        //console.log("el elemento no existe o ya fue eliminado")
-    }
-
-    if (alerta) { //Si se encontro el mensaje de alerta del QR, se traduce el texto en cuestion segun sea el caso
-        if (alerta.innerHTML === "Requesting camera permissions...") {
-            alerta.innerHTML = "Solicitando permisos para usar la camara";
-        } else if (alerta.innerHTML === "NotFoundError: Requested device not found" || alerta.innerHTML === "") {
-            alerta.innerHTML = "No se encontro ninguna camara";
-        } else if (alerta.innerHTML === "D: No MultiFormat Readers were able to detect the code.") {
-            alerta.innerHTML = "D: Ningun lector multiformato pudo detectar el codigo.";
+        if (button_camera) { //Si se detecto el boton de usar camara
+            button_camera.innerHTML = "Activar Camara"; //Cambiar el texto del boton por "Activar Camara"
+            button_camera.className = "input button"; //Asignacion de formatos-estilos al boton
         }
-    }
 
-    if (btn_start_scann) { //Si se encontro el boton de comenzar a escanear...
-        //btn_start_scann.className = "html5-qrcode-element input button";
-        btn_start_scann.className = "input button"; //Se setea sus estilos
-        btn_start_scann.innerHTML = "Escanear"; //Se traduce lo que dice
-    }
+        if (button_img) {//Si se detecto el boton de usar imagen, se reescribe/traduce el texto del boton a espanol
+            if (button_img.innerHTML === "Choose Image - No image choosen") {//Si es la primera ves que aparece el boton
+                button_img.innerHTML = "Buscar imagen"; //Se traduce todo como "Buscar imagen"
+            } else if (button_img.innerHTML != "Buscar imagen") { //Si no es la primera ves que aparece el boton
+                aux = button_img.innerHTML.split(""); //Se captura el texto del boton (este es de interes ya que contiene el nombre de la imagen)
+                aux_1 = ""; //Se solicita que se separe el texto en intervalos de caracteres
+                for (let x = 0; x < 17; x++) {//Se captura el texto inicial del boton
+                    aux_1 = aux_1 + aux[x];
+                }
+                if (aux_1 === "Choose Another - ") {//Si el texto inicial captorado en el for es igual a "Choose Another - "
+                    button_img.innerHTML = "Escoger otra imagen - "; //Se traduce "Choose Another - " como "Escoger otra imagen - "
+                    for (let x = 17; x < aux.length; x++) { //Se agrega el resto del texto al boton (el nombre de la imagen)
+                        button_img.innerHTML = button_img.innerHTML + aux[x]
+                    }
+                }
+            }
+            button_img.className = "input button";//Se formatea el estilo del boton
+        }
 
-    if (btn_stop_scann) { //Si se encontro el boton de parar de escanear...
-        //btn_stop_scann.className = "html5-qrcode-element input button";
-        btn_stop_scann.className = "input button"; //Se setea sus estilos
-        btn_stop_scann.innerHTML = "Parar de escanear"; //Se traduce lo que dice
-    }
+        if (qr_container) { //Si se encontro el contenedor del QR, se setean sus propiedades
+            qr_container.style.border = "0px";
+            qr_container.style.width = "300px";
+        }
 
-    if (img_label) { //Si se encontro el label de como usar el analizador de imagenes
-        img_label.innerHTML = "O arrastra una imagen"; //Se traduce lo que dice
+        if (link) {//Si se encontro el link para alternar entre usar una imagen y usar la camara
+            link.innerHTML = "usar otra opcion"; //Se traduce el texto como "Usar otra opcion", se opto por un texto generico para simplificar elcodigo
+        }
+
+        if (more_info && first) { //Si es la primera ves que se actualiza la pagina y se encontro los iconos de "mas informacion"
+            more_info[0].remove(); //Se eliminan los iconos-botones-textos de "mas informacion"
+            first = false; //Ya no es la primera ves que se ejecuta este codigo
+        } else {
+            //console.clear();
+            //console.log("el elemento no existe o ya fue eliminado")
+        }
+
+        if (alerta) { //Si se encontro el mensaje de alerta del QR, se traduce el texto en cuestion segun sea el caso
+            if (alerta.innerHTML === "Requesting camera permissions...") {
+                alerta.innerHTML = "Solicitando permisos para usar la camara";
+            } else if (alerta.innerHTML === "NotFoundError: Requested device not found" || alerta.innerHTML === "") {
+                alerta.innerHTML = "No se encontro ninguna camara";
+            } else if (alerta.innerHTML === "D: No MultiFormat Readers were able to detect the code.") {
+                alerta.innerHTML = "D: Ningun lector multiformato pudo detectar el codigo.";
+            }
+        }
+
+        if (btn_start_scann) { //Si se encontro el boton de comenzar a escanear...
+            //btn_start_scann.className = "html5-qrcode-element input button";
+            btn_start_scann.className = "input button"; //Se setea sus estilos
+            btn_start_scann.innerHTML = "Escanear"; //Se traduce lo que dice
+        }
+
+        if (btn_stop_scann) { //Si se encontro el boton de parar de escanear...
+            //btn_stop_scann.className = "html5-qrcode-element input button";
+            btn_stop_scann.className = "input button"; //Se setea sus estilos
+            btn_stop_scann.innerHTML = "Parar de escanear"; //Se traduce lo que dice
+        }
+
+        if (img_label) { //Si se encontro el label de como usar el analizador de imagenes
+            img_label.innerHTML = "O arrastra una imagen"; //Se traduce lo que dice
+        }
+    } catch (e) {
+        console.log(`Error inesperado: \n\n${e}`)
     }
 }
