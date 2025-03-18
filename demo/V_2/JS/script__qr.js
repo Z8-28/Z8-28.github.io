@@ -36,14 +36,14 @@ domReady(function () {
                 texto.value = decodeText //Se muestra toda la informacion que venia en el QR, Se recomienda cambiarlo por solo el No. de boleta
 
                 //Este bloque busca los spans y los elimina para que no se traslapen con la informacion mostrada en los inputs
-                //for (x = 0; x < inputs.length; x++) {//Para todo los inputs detectados...
-                //    var text = inputs[x]; //Para el input actual...
-                //    text = text.getElementsByTagName("span");//Captura todos los "spans" que tenga el input actual
-                //    for (y = 0; y < text.length; y++) {//Para todos los "spans" detectados en el input actual...
-                //        var text_2 = text[y]//Para el span actual del input actual...
-                //        text_2.remove();//Elimina el span actual
-                //    }
-                //}
+                for (x = 0; x < inputs.length; x++) {//Para todo los inputs detectados...
+                    var text = inputs[x]; //Para el input actual...
+                    text = text.getElementsByTagName("span");//Captura todos los "spans" que tenga el input actual
+                    for (y = 0; y < text.length; y++) {//Para todos los "spans" detectados en el input actual...
+                        var text_2 = text[y]//Para el span actual del input actual...
+                        text_2.remove();//Elimina el span actual
+                    }
+                }
             }
             //mensage = decodeText;
             //save_data(decodeText);    //Se alamcena en cache del navegador los datos del QR
@@ -192,6 +192,6 @@ function actualizar_interface() {
             img_label.innerHTML = "O arrastra una imagen"; //Se traduce lo que dice
         }
     } catch (e) {
-        console.log(`Error inesperado: \n\n${e}`)
+        //console.log(`Error inesperado: \n\n${e}`)
     }
 }
