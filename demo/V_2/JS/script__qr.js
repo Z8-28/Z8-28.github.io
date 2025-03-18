@@ -19,9 +19,8 @@ domReady(function () {
     try {
         function onScanSuccess(decodeText, decodeResult) {//Se prepara funcionalidad del scaner de QR
             var texto = document.getElementById("boleta");//Se obtiene el textBox de la pagina
-
             var inputs = document.getElementsByClassName("textBox"); //Adquiere los divs del tipo "Inputs"
-
+            console.log(decodeText);
             {
                 //Cambiar la logica del while cuando se tenga ya la bandera asignada para separar los datos
                 //let x = 0;
