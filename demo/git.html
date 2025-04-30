@@ -18,7 +18,7 @@
 	var intentos = 4;
 	var lat_min = 0;
 	var lon_min = 0;
-	var mar_min = 99;
+	var mar_min = 9999;
 	const watchId = navigator.geolocation.watchPosition(
 	  function(position) {
 		intentos--;
@@ -33,7 +33,7 @@
 		document.getElementById("precision").innerHTML = `Precision conseguida: ${mar_min}`;
 		document.getElementById("last").innerHTML = `Ultima lectura: ${precision}`;
 
-		if (mar_min <= 10 || intentos <= 0) {
+		if (mar_min <= 25 || intentos <= 0) {
 		  var datos = {
 			lat: lat_min,
 			lon: lon_min,
