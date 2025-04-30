@@ -8,31 +8,34 @@
 <body>
   <p>Obteniendo ubicación precisa...</p>
   <p>Porfavor no cierre la pagina</p>
-  <p>1</p>
+  <p>2</p>
   <script>
-    
-	let watchId = navigator.geolocation.watchPosition(
-		function(position) {
-			if (position.coords.accuracy <= 10) {
-			  const datos = {
-				lat: position.coords.latitude,
-				lon: position.coords.longitude,
-				accuracy: position.coords.accuracy
-			  };
-			  window.opener?.postMessage(datos, "*");
-			  navigator.geolocation.clearWatch(watchId);
-			  window.close();
-			}
-		},
-		function(error) {
-			window.opener?.postMessage({ error: error.message }, "*");
-			window.close();
-		},
-		{
-			enableHighAccuracy: true,
-			timeout: 60000, // hasta 60s
-			maximumAge: 0
+	let intentos = 10;
+	const watchId = navigator.geolocation.watchPosition(
+	  function(position) {
+		intentos--;
+		const precision = position.coords.accuracy;
+
+		if (precision <= 10 || intentos <= 0) {
+		  const datos = {
+			lat: position.coords.latitude,
+			lon: position.coords.longitude,
+			accuracy: precision
+		  };
+		  window.opener?.postMessage(datos, "*");
+		  navigator.geolocation.clearWatch(watchId);
+		  window.close();
 		}
+	  },
+	  function(error) {
+		window.opener?.postMessage({ error: error.message }, "*");
+		window.close();
+	  },
+	  {
+		enableHighAccuracy: true,
+		timeout: 60000, // da más tiempo al GPS para refinar
+		maximumAge: 0
+	  }
 	);
   
     /*navigator.geolocation.getCurrentPosition(
