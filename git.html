@@ -1,0 +1,74 @@
+<!-- En GitHub Pages: geo-gps/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GPS Bridge</title>
+</head>
+<body>
+  <p>Obteniendo ubicación precisa...</p>
+  <p>Porfavor no cierre la pagina</p>
+  <p id="intento">intentos restantes: 10</p>
+  <p id="precision">Precision conseguida: N/A</p>
+  <script>
+	var intentos = 10;
+	var lat_min = 0;
+	var lon_min = 0;
+	var mar_min = 99;
+	const watchId = navigator.geolocation.watchPosition(
+	  function(position) {
+		intentos--;
+		var precision = position.coords.accuracy;
+		if (precision < mar_min){
+			lat_min = position.coords.latitude;
+			lon_min = position.coords.longitude;
+			mar_min = precision;
+		}
+		document.getElementById("intento").innerHTML = `intentos restantes: ${intentos}`;
+		document.getElementById("precision").innerHTML = `Precision conseguida: ${mar_min}`;
+
+		if (precision <= 10 || intentos <= 0) {
+		  const datos = {
+			lat: lat_min,
+			lon: lon_min,
+			accuracy: mar_min
+		  };
+		  window.opener?.postMessage(datos, "*");
+		  navigator.geolocation.clearWatch(watchId);
+		  window.close();
+		}
+	  },
+	  function(error) {
+		window.opener?.postMessage({ error: error.message }, "*");
+		window.close();
+	  },
+	  {
+		enableHighAccuracy: true,
+		timeout: 60000, // da más tiempo al GPS para refinar
+		maximumAge: 0
+	  }
+	);
+  
+    /*navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const datos = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        };
+        window.opener?.postMessage(datos, "*"); // "*", o mejor especificar origen si puedes
+        window.close();
+      },
+      function(error) {
+        window.opener?.postMessage({ error: error.message }, "*");
+        window.close();
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0
+      }
+    );*/
+  </script>
+</body>
+</html>
