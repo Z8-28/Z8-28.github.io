@@ -1,4 +1,3 @@
-<!-- En GitHub Pages: geo-gps/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +7,14 @@
 <body>
   <p>Obteniendo ubicación precisa...</p>
   <p>Porfavor no cierre la pagina</p>
-  <p id="intento">intentos restantes: 4</p>
+  <p id="intento">intentos restantes:</p>
   <p id="precision">Precision conseguida: N/A</p>
   <p id="last">Ultima lectura: N/A</p>
   <p id="coordenadas"> Coordenadas:  </p>
   
   
   <script>
-	var intentos = 4;
+	var intentos = 3;
 	var lat_min = 0;
 	var lon_min = 0;
 	var mar_min = 9999;
@@ -43,8 +42,6 @@
 		  navigator.geolocation.clearWatch(watchId);
 		  document.getElementById("coordenadas").innerHTML = ` Latitud: ${lat_min}\n Longitud: ${lon_min}`
 		  window.close();
-		  //alert(datos.lat + '  ' + datos.lon);
-		  //document.getElementById("coordenadas").val('latitud: ' + datos.lat + ' longitud: ' + datos.lon + '  margen:'  + datos.margen);
 		  
 		}
 	  },
@@ -59,27 +56,6 @@
 		maximumAge: 0
 	  }
 	);
-  
-    /*navigator.geolocation.getCurrentPosition(
-      function(position) {
-        const datos = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-          accuracy: position.coords.accuracy
-        };
-        window.opener?.postMessage(datos, "*"); // "*", o mejor especificar origen si puedes
-        window.close();
-      },
-      function(error) {
-        window.opener?.postMessage({ error: error.message }, "*");
-        window.close();
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 15000,
-        maximumAge: 0
-      }
-    );*/
   </script>
 </body>
 </html>
