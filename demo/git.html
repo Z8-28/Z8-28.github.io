@@ -10,7 +10,32 @@
   <p>Porfavor no cierre la pagina</p>
   <script>
   
-		let watchId = navigator.geolocation.watchPosition(
+  
+  
+    navigator.geolocation.watchPosition(
+      function(position) {
+        const datos = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        };
+        window.opener?.postMessage(datos, "*"); // "*", o mejor especificar origen si puedes
+        window.close();
+      },
+      function(error) {
+        window.opener?.postMessage({ error: error.message }, "*");
+        window.close();
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0
+      }
+    );
+  
+  
+  
+		/*let watchId = navigator.geolocation.watchPosition(
 			function(position) {
 				if (position.coords.accuracy <= 10) {
 				  const datos = {
@@ -32,7 +57,7 @@
 				timeout: 60000, // hasta 60s
 				maximumAge: 0
 			}
-		);
+		);*/
   
     /*navigator.geolocation.getCurrentPosition(
       function(position) {
