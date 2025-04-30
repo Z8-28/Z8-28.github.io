@@ -1,0 +1,33 @@
+<!-- En GitHub Pages: geo-gps/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GPS Bridge</title>
+</head>
+<body>
+  <p>Obteniendo ubicación precisa...</p>
+  <script>
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const datos = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        };
+        window.opener?.postMessage(datos, "*"); // "*", o mejor especificar origen si puedes
+        window.close();
+      },
+      function(error) {
+        window.opener?.postMessage({ error: error.message }, "*");
+        window.close();
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      }
+    );
+  </script>
+</body>
+</html>
