@@ -28,10 +28,10 @@
 		document.getElementById("precision").innerHTML = `Precision conseguida: ${mar_min}`;
 
 		if (precision <= 10 || intentos <= 0) {
-		  const datos = {
-			lat: position.coords.latitude,
-			lon: position.coords.longitude,
-			accuracy: precision
+		  var datos = {
+			lat: lat_min,
+			lon: lon_min,
+			margen: mar_min
 		  };
 		  window.opener?.postMessage(datos, "*");
 		  navigator.geolocation.clearWatch(watchId);
