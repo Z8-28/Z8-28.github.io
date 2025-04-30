@@ -8,9 +8,12 @@
 <body>
   <p>Obteniendo ubicación precisa...</p>
   <p>Porfavor no cierre la pagina</p>
-  <p id="intento">intentos restantes: 10</p>
+  <p id="intento">intentos restantes: 4</p>
   <p id="precision">Precision conseguida: N/A</p>
   <p id="last">Ultima lectura: N/A</p>
+  <p id="coordenadas"> Coordenadas:  </p>
+  
+  
   <script>
 	var intentos = 4;
 	var lat_min = 0;
@@ -38,10 +41,15 @@
 		  };
 		  window.opener?.postMessage(datos, "*");
 		  navigator.geolocation.clearWatch(watchId);
+		  document.getElementById("coordenadas").innerHTML = ` Latitud: ${lat_min}\n Longitud: ${lon_min}`
 		  window.close();
+		  //alert(datos.lat + '  ' + datos.lon);
+		  //document.getElementById("coordenadas").val('latitud: ' + datos.lat + ' longitud: ' + datos.lon + '  margen:'  + datos.margen);
+		  
 		}
 	  },
 	  function(error) {
+		document.getElementById("coordenadas").innerHTML = error;
 		window.opener?.postMessage({ error: error.message }, "*");
 		window.close();
 	  },
