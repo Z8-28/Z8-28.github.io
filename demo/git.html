@@ -11,14 +11,21 @@
   <p id="intento">intentos restantes: 10</p>
   <p id="precision">Precision conseguida: N/A</p>
   <script>
-	let intentos = 10;
+	var intentos = 10;
+	var lat_min = 0;
+	var lon_min = 0;
+	var mar_min = 99;
 	const watchId = navigator.geolocation.watchPosition(
 	  function(position) {
 		intentos--;
 		var precision = position.coords.accuracy;
-		
+		if (precision < mar_min){
+			lat_min = position.coords.latitude;
+			lon_min = position.coords.longitude;
+			mar_min = precision;
+		}
 		document.getElementById("intento").innerHTML = `intentos restantes: ${intentos}`;
-		document.getElementById("presicion").innerHTML = `Precision conseguida: ${precision}`;
+		document.getElementById("precision").innerHTML = `Precision conseguida: ${mar_min}`;
 
 		if (precision <= 10 || intentos <= 0) {
 		  const datos = {
