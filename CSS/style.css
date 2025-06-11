@@ -1,0 +1,363 @@
+body{
+    background-color: #85FFCD;
+    width: 95%;
+    margin: 5px;
+    border: 0px;
+    padding: 0px;
+    padding-left: 2.5%;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Audiowide', sans-serif;
+}
+p{
+    font-family: 'Audiowide', sans-serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Itim', cursive;
+    font-size: 20px;
+}
+a{
+    color: #216126;
+}
+a:hover{
+    color: #ff0000;
+}
+#fv{
+    font-family: 'Audiowide', sans-serif;
+}
+#rostro{
+    max-width: 90%;
+    max-height: 100%;
+    border: #000000 solid 2px;
+    border-radius: 150px;
+}
+#rostro_div{
+    margin: 2% 2% 2% 2%;
+    width: 25%;
+    text-align: center;
+}
+#presentacion_div{
+    text-align: center;
+    width: 75%;
+    margin-top: 2%;
+}
+#languaje{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+}
+#prsn{
+    top: 15px;
+    right: 15px;
+    display: flex;
+}
+#Otrs_conoci_noc{
+    display: block;
+}
+#contact_btm{
+    margin-top: 0px;
+}
+#sert-table{
+    table,tr,td{
+        border: 3px solid black;
+        justify-content: center;
+        text-align: center;
+    }
+}
+#next_table{
+    display: flex;
+    text-align: center;
+    height: 25px;
+}
+#no_table{
+    border: 0px;
+    margin: 0px 10px 40px 10px;
+}
+
+.linea{
+    border-top: 2px solid #000000;
+    width: 95%;
+    margin: 15px 5% 15px 0px;
+}
+
+.en, .es{
+    color:#000000;
+    margin: 2px;
+}
+.ta, .fo{
+    color:#000000;
+    margin: 2px;
+}
+.check{
+    position: relative;
+    width: 50px;
+    height: 0px;
+}
+.check:before{
+    content: " ";
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #333333;
+    border-radius: 25px;
+}
+.check:after{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ffffff;
+    border-radius: 25px;
+    transition: 0.5s;
+    border: 2px solid #333333;
+    box-sizing: border-box;
+}
+.check:checked:after{
+    left: 25px;
+    border:2px solid #00a1ff;
+}
+.check:checked:before{
+    background: #00a1ff;
+}
+
+
+.check1{
+    position: relative;
+    width: 50px;
+    height: 0px;
+}
+.check1:before{
+    content: " ";
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #216126;
+    border-radius: 25px;
+}
+.check1:after{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ffffff;
+    border-radius: 25px;
+    transition: 0.5s;
+    border: 2px solid #216126;
+    box-sizing: border-box;
+}
+.check1:checked:after{
+    left: 25px;
+    border:2px solid #00a1ff;
+}
+.check1:checked:before{
+    background: #00a1ff;
+}
+
+.head0{
+    width: 100%;
+    height: 270px;
+    padding: 0%;
+    margin: 5px;
+    border: 0px;
+    background-color: #85BAFF;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.head1{
+    width: 100%;
+    height: 480px;
+    padding: 0%;
+    margin: 5px;
+    border: 0px;
+    background-color: #85BAFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.content{
+    width: 100%;
+    padding: 2px;
+    margin: 0px;
+    border: 0px;
+    display: flex;
+}
+.left{
+    width: 25%;
+    background-color: #C2E6FF;
+}
+.bootom{
+    width: 100%;
+    padding: 2%;
+    background-color: #C2E6FF;
+}
+.right{
+    width: 75%;
+    background-color: #85E1FF;
+}
+.left, .right{
+    padding: 2%;
+}
+.contact{
+    display: flex;
+}
+.sub_contact{
+    margin: 0% 0% 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-wrap: break-word;
+}
+.contact_icon{
+    font-size: 1.5em;
+    margin: 0% 0% 5px 0%;
+}
+.columnas2{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.columna2{
+    margin-left: 15px;
+    width: 50%;
+}
+.c1, .c2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.img_certificado, .img_img{
+    width: 70%;
+    border: #000000 solid 2px;
+}
+
+@media screen and (max-width: 1600px){
+    .img_certificado, .img_img{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 1360px){
+    .img_img{
+        width: 90%;
+    }
+}
+@media screen and (min-width:1216px){
+    #mail1{
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 1217px){
+    #mail0{
+        display: none;
+    }
+}
+@media screen and (max-width: 920px){
+    #rostro_div{        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+@media screen and (min-width:881px) {
+    body{
+        border: 0% 3vw 0% 3vw;
+    }
+
+    .bootom{
+        display: none;
+    }
+}
+@media screen and (max-width:880px) {
+    .content{
+        display: block;
+        width: 96%;
+    }
+    .left{
+        display: none;
+    }
+    .right{
+        width: 100%;
+        border: 0% 5% 0% 5%;
+    }
+}
+@media screen and (max-width:833px){
+    .head0{
+        height: 300px;
+    }
+}
+@media screen and (max-width:773px) {
+    .head0{
+        height: 325px;
+    }
+}
+@media screen and (min-width: 621px){
+    .head1{
+        display: none;
+    }
+
+    .columnas1{
+        display: none;
+    }
+}
+@media screen and (max-width: 620px){
+
+    body{
+        padding: 0% 3% 0% 0%;
+    }
+
+    #rostro{
+        max-width: 25vw;
+    }
+
+    #rostro_div{
+        width: 100%;
+        align-items: center;
+    }
+
+    #presentacion_div{
+        width: 100%;
+    }
+
+    .head0{
+        display: none;
+    }
+
+    .columnas2{
+        display: none;
+    }
+}
+@media screen and (max-width: 340px){
+    body{
+        width: 100%;
+    }
+}
+@media screen and (min-width:326px){
+    #mail3{
+        display: none;
+    }
+}
+@media screen and (max-width:325px){
+    #mail2{
+        display: none;
+    }
+}
+@media screen and (max-width: 310px){
+    .content, .bootom{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 300px){
+    .head1{
+        height: 550px;
+    }
+}
+@media screen and (max-width: 234px){
+    .head1{
+        height: 610px;
+    }
+}
