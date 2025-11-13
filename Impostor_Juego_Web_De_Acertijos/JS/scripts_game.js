@@ -39,6 +39,7 @@ function asignar(){
         key_word.textContent = "???";
         key_word.style.color = "white";
         boton.textContent = "Reiniciar";
+        exit_btn.textContent = "Home";
         exit_btn.style.visibility = "visible";
         end_game = true;
     }

@@ -1,7 +1,3 @@
-#exit{
-    visibility: hidden;
-}
-
 p{
     font-size: min(10vh, 15vw);
     color: white;
