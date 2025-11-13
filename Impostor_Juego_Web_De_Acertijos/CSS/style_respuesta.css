@@ -1,0 +1,12 @@
+#impostores>p{
+    color: red;
+}
+
+#impostores{
+    height: 50%;
+    overflow-y: auto;
+}
+
+#exit{
+    top: 10%;
+}

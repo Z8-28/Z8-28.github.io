@@ -8,8 +8,13 @@ body{
     background-color: black;
 }
 
-div{
-    /*width: 100%;*/
+p{
+    font-size: min(10vh, 10vw);
+    color: white;
+    margin: 0px;
+    border: none;
+    padding: 0px;
+    text-align: center;
 }
 
 img{
@@ -30,6 +35,31 @@ img{
 }
 
 .boton{
+    /*width: auto;*/
+    width: 60%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    border: none;
+    border-radius: 30px;
+    font-size: min(9vh, 10vw);
+}
+
+.boton:hover{
+    background-color: rgb(197, 0, 0)
+}
+
+.boton:active{
+    /*font-size: 6vh;*/
+    font-size: min(7vh, 8vw);
+    background-color: rgb(200, 1, 1);
+    width: 55%;
+}
+
+/*.boton{
     width: auto;
     height: auto;
     position: absolute;
@@ -39,21 +69,21 @@ img{
     background-color: red;
     border: none;
     border-radius: 30px;
-    font-size: min(10vh, 15vw);
-}
+    font-size: min(9vh, 10vw);
+}*/
 
-.boton:hover{
+/*.boton:hover{
     background-color: darkred;
     cursor: pointer;
-}
+}*/
 
-#boton:active{
-    font-size: 8vh;
-}
+/*#boton:active{
+    font-size: 6vh;
+}*/
 
 #screen {
     width: 90%;
-    height: 90%;
+    height: 75%;
     background: linear-gradient(to bottom, black, rgb(4, 6, 52)); /* Degradado de negro a rojo */
     border: none;
     border-radius: 20px;
@@ -61,7 +91,7 @@ img{
     overflow-x: hidden;
     overflow-y: auto;
     position: absolute; /* Cambiado a absolute */
-    top: 50%; /* Centrado verticalmente */
+    top: 55%; /* Centrado verticalmente */
     left: 50%; /* Centrado horizontalmente */
     transform: translate(-50%, -50%); /* Ajuste para centrar */
     display: flex;

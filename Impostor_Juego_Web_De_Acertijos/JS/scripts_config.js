@@ -1,5 +1,3 @@
-//import { read_json } from './scripts_read_json.js';
-
 const numero_jugadores = document.getElementById('numero_jugadores');
 const numero_impostores = document.getElementById('numero_impostores');
 const alerta_1 = document.getElementById('alerta_1');
@@ -97,6 +95,7 @@ function re_verificar_jugadores(e){
 
 function verificar_impostores(e){
   const v = e.target.value;
+  jugadores = numero_jugadores.value;
   alerta_2.style.visibility = 'hidden';
   if (v === '') return;
   // usar parseInt para evitar decimales
@@ -115,6 +114,7 @@ function verificar_impostores(e){
 }
 function re_verificar_impostores(e){
   let n = parseInt(e.target.value || '0', 10);
+  jugadores = numero_jugadores.value;
   if (Number.isNaN(n) || n < 1) {
     n = 1
   };
@@ -123,22 +123,6 @@ function re_verificar_impostores(e){
   };
   e.target.value = n;
 }
-
-/*function goto_game(){
-  if (numero_impostores.value > 0 && numero_jugadores.value > 0){
-    set_players();
-    read_json();
-    window.location.href = "../HTML/game.html";
-  }else{
-    alerta_1.textContent = "Por favor, ingrese valores válidos"
-    alerta_1.style.visibility = 'visible';
-    if (numero_jugadores.value <= 0){
-      numero_jugadores.focus();
-    }else{
-      numero_impostores.focus();
-    }
-  }
-}*/
 
 async function goto_game(){
   if (numero_impostores.value > 0 && numero_jugadores.value > 0){

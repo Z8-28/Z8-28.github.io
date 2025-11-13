@@ -1,12 +1,3 @@
-p{
-    font-size: min(10vh, 15vw);
-    color: white;
-    margin: 0px;
-    border: none;
-    padding: 0px;
-    text-align: center;
-}
-
 p, button{
     position: absolute;
     top: 50%;
@@ -28,4 +19,8 @@ p, button{
     display: inline-block; /* para respetar max-width/centrado */
     width: 100%;
     text-align: center;
+}
+
+#exit{
+    top: 10%;
 }

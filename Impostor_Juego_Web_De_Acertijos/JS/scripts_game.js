@@ -3,6 +3,7 @@ const key_word = document.getElementById('key_word');
 const boton = document.getElementById('boton');
 const exit_btn = document.getElementById('exit');
 
+var impostor_list = "";
 var next_player = true;
 var end_game = false;
 var publico = true;
@@ -11,16 +12,28 @@ var impostor_probability = 0;
 var impostor = localStorage.getItem('impostors');
 const players = localStorage.getItem('players');
 
+async function goto_respuesta(){
+    return new Promise((resolve) => {
+        localStorage.setItem("impostor_list", impostor_list);
+        // Verificar que se guardó
+        const verificado = localStorage.getItem("impostor_list");
+        if (verificado === impostor_list) {
+            resolve();
+            window.location.href = "respuesta.html";
+        }
+    });
+}
+
 function init_game(){
     if (end_game){
-        window.location.href = "config.html";
+        goto_respuesta();
     }else{
         if(publico && current_player > 1 && current_player <= players){
             publico = false;
             no_jugador.textContent = "#";
             key_word.textContent = "Siguiente jugador";
             key_word.style.color = "white";
-            boton.textContent = "Listo";
+            //boton.textContent = "Ver palabra";
         }
         else{
             publico = true;
@@ -38,7 +51,8 @@ function asignar(){
         no_jugador.textContent = "#";
         key_word.textContent = "???";
         key_word.style.color = "white";
-        boton.textContent = "Reiniciar";
+        //boton.textContent = "Reiniciar";
+        boton.textContent = "Continuar";
         exit_btn.textContent = "Home";
         exit_btn.style.visibility = "visible";
         end_game = true;
@@ -47,10 +61,14 @@ function asignar(){
 
 function get_role(){
     let word = localStorage.getItem('word')
-    console.log(word);
     let role = Math.random() * 100;
     impostor_probability = (impostor / (players - current_player + 1)) * 100;
     if (role < impostor_probability){
+        if (impostor_list === ""){
+            impostor_list = String(current_player);
+        }else{
+            impostor_list = impostor_list + "-" + String(current_player);
+        }
         key_word.textContent = "IMPOSTOR";
         impostor--;
         format(true)

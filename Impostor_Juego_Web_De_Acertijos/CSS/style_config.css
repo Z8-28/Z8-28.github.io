@@ -1,11 +1,11 @@
-p{
-    font-size: min(10vh, 15vw);
+/*p{
+    font-size: min(10vh, 10vw);
     color: white;
     margin: 0px;
     border: none;
     padding: 0px;
     text-align: center;
-}
+}*/
 
 p, input, button{
     position: absolute;
@@ -15,7 +15,7 @@ p, input, button{
 }
 
 input{
-    font-size: min(8vh, 10vw);
+    font-size: min(7vh, 8vw);
     width: 90%;
     margin:0px;
     border: none;
