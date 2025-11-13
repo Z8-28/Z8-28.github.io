@@ -32,7 +32,8 @@ input{
 }
 
 /*#alerta_1, #alerta_2, */#alerta {
-    font-size: min(5vh, 8vw);
+    /*font-size: min(5vh, 8vw);*/
+    font-size: min(25px, 5vh, 8vw);
     color: red;
     top: 50%;
     left: 50%;
