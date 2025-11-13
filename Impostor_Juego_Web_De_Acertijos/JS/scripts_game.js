@@ -5,6 +5,7 @@ const exit_btn = document.getElementById('exit');
 
 var next_player = true;
 var end_game = false;
+var publico = true;
 var current_player = 1;
 var impostor_probability = 0;
 var impostor = localStorage.getItem('impostors');
@@ -14,7 +15,17 @@ function init_game(){
     if (end_game){
         window.location.href = "config.html";
     }else{
-        asignar();
+        if(publico && current_player > 1 && current_player <= players){
+            publico = false;
+            no_jugador.textContent = "#";
+            key_word.textContent = "Siguiente jugador";
+            key_word.style.color = "white";
+            boton.textContent = "Listo";
+        }
+        else{
+            publico = true;
+            asignar();
+        }
     }
 }
 
