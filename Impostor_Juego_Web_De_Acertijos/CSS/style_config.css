@@ -1,0 +1,83 @@
+p{
+    font-size: min(10vh, 15vw);
+    color: white;
+    margin: 0px;
+    border: none;
+    padding: 0px;
+    text-align: center;
+}
+
+p, input, button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input{
+    font-size: min(8vh, 10vw);
+    width: 90%;
+    margin:0px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contenedor{
+    height: 25% !important;
+}
+
+#contenedor_numero{
+    height: 50%;
+}
+
+#alerta_1, #alerta_2 {
+    font-size: min(5vh, 8vw);
+    color: red;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+
+
+
+
+
+/* ocultar flechas (spin) en input type=number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;
+}
+
+/* Edge / IE */
+input::-ms-clear,
+input::-ms-expand {
+    display: none;
+}
+/* ocultar flechas (spin) en input type=number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;
+}
+
+/* Edge / IE */
+input[type="number"]::-ms-clear,
+input[type="number"]::-ms-expand {
+    display: none;
+}

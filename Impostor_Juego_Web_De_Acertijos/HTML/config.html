@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impostor</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style_config.css">
+</head>
+<body>
+    <div id="screen">
+        <div class="contenedor"><p>No. Jugadores</p></div>
+        <div class="contenedor" id="contenedor_numero"><input type="number" id="numero_jugadores" placeholder="No. Jugadores"></div>
+        <div class="contenedor" id="contenedor_numero"><input type="number" id="numero_impostores" placeholder="Impostores"></div>
+        <div class="contenedor"><button class="boton" onclick="goto_game()">Iniciar</button></div>
+        <div class="contenedor"><p id="alerta_1"></p></div>
+        <div class="contenedor"><p id="alerta_2"></p></div>
+    </div>
+</body>
+<script src="../JS/scripts.js"></script>
+<script src="../JS/scripts_read_json.js"></script>
+<!--script type="module" src="../JS/scripts_config.js"></script-->
+<script src="../JS/scripts_config.js"></script>
+</html>

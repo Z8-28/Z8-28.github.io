@@ -1,0 +1,35 @@
+#exit{
+    visibility: hidden;
+}
+
+p{
+    font-size: min(10vh, 15vw);
+    color: white;
+    margin: 0px;
+    border: none;
+    padding: 0px;
+    text-align: center;
+}
+
+p, button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contenedor{
+    height: 25% !important;
+}
+
+#key_word{
+    /* permitir guionación automática según el idioma */
+    hyphens: auto;
+    /* forzar cortes si es necesario */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    display: inline-block; /* para respetar max-width/centrado */
+    width: 100%;
+    text-align: center;
+}
