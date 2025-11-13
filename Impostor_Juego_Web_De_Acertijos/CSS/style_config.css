@@ -31,7 +31,7 @@ input{
     height: 50%;
 }
 
-#alerta_1, #alerta_2 {
+/*#alerta_1, #alerta_2, */#alerta {
     font-size: min(5vh, 8vw);
     color: red;
     top: 50%;

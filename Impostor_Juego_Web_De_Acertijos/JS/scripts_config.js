@@ -1,7 +1,8 @@
 const numero_jugadores = document.getElementById('numero_jugadores');
 const numero_impostores = document.getElementById('numero_impostores');
-const alerta_1 = document.getElementById('alerta_1');
-const alerta_2 = document.getElementById('alerta_2');
+const alerta = document.getElementById('alerta');
+/*const alerta_1 = document.getElementById('alerta_1');
+const alerta_2 = document.getElementById('alerta_2');*/
 const min_jugadores = "Se requieren al menos 3 jugadores.";
 const max_jugadores = "El máximo de jugadores es 20.";
 const min_impostores = "Se requieren al menos 1 impostor.";
@@ -58,20 +59,25 @@ if (numero_impostores) {
 
 function verificar_jugadores(e){
   const v = e.target.value;
-  alerta_1.style.visibility = 'hidden';
+  alerta.style.visibility = 'hidden';
+  /*alerta_1.style.visibility = 'hidden';*/
     if (v === '') return;
     // usar parseInt para evitar decimales
     let n = parseInt(v, 10);
     if (Number.isNaN(n)) { e.target.value = ''; return; }
     if (n > 20) {
         e.target.value = 20
-        alerta_1.textContent = max_jugadores;
-        alerta_1.style.visibility = 'visible';
+        alerta.textContent = max_jugadores;
+        alerta.style.visibility = 'visible';
+        /*alerta_1.textContent = max_jugadores;
+        alerta_1.style.visibility = 'visible';*/
     };
     if (n < 1) {
         e.target.value = 3;
-        alerta_1.textContent = min_jugadores
-        alerta_1.style.visibility = 'visible';
+        alerta.textContent = min_jugadores
+        alerta.style.visibility = 'visible';
+        /*alerta_1.textContent = min_jugadores
+        alerta_1.style.visibility = 'visible';*/
     };
     jugadores = numero_jugadores.value;
 }
@@ -80,13 +86,17 @@ function re_verificar_jugadores(e){
   let n = parseInt(e.target.value || '0', 10);
   if (Number.isNaN(n) || n < 3) {
     n = 3
-    alerta_1.textContent = min_jugadores;
-    alerta_1.style.visibility = 'visible';
+    alerta.textContent = min_jugadores;
+    alerta.style.visibility = 'visible';
+    /*alerta_1.textContent = min_jugadores;
+    alerta_1.style.visibility = 'visible';*/
   };
   if (n > 20) {
     n = 20
-    alerta_1.textContent = max_jugadores;
-    alerta_1.style.visibility = 'visible';
+    alerta.textContent = max_jugadores;
+    alerta.style.visibility = 'visible';
+    /*alerta_1.textContent = max_jugadores;
+    alerta_1.style.visibility = 'visible';*/
   };
   e.target.value = n;
   jugadores = numero_jugadores.value;
@@ -96,20 +106,25 @@ function re_verificar_jugadores(e){
 function verificar_impostores(e){
   const v = e.target.value;
   jugadores = numero_jugadores.value;
-  alerta_2.style.visibility = 'hidden';
+  alerta.style.visibility = 'hidden';
+  /*alerta_2.style.visibility = 'hidden';*/
   if (v === '') return;
   // usar parseInt para evitar decimales
   let n = parseInt(v, 10);
   if (Number.isNaN(n)) { e.target.value = ''; return; }
   if (n > (jugadores / 2)) {
       e.target.value = parseInt(jugadores/2, 10);
-      alerta_2.textContent = max_impostores;
-      alerta_2.style.visibility = 'visible';
+      alerta.textContent = max_impostores;
+      alerta.style.visibility = 'visible';
+      /*alerta_2.textContent = max_impostores;
+      alerta_2.style.visibility = 'visible';*/
   };
   if (n < 1) {
       e.target.value = 1;
-      alerta_2.textContent = min_impostores
-      alerta_2.style.visibility = 'visible';
+      alerta.textContent = min_impostores
+      alerta.style.visibility = 'visible';
+      /*alerta_2.textContent = min_impostores
+      alerta_2.style.visibility = 'visible';*/
   };
 }
 function re_verificar_impostores(e){
@@ -131,13 +146,17 @@ async function goto_game(){
       await read_json(); // esperar a que termine la carga y almacenamiento
       window.location.href = "../HTML/game.html";
     } catch (err) {
-      alerta_1.textContent = "Error cargando datos. Intente otra vez.";
-      alerta_1.style.visibility = 'visible';
+      alerta.textContent = "Error cargando datos. Intente otra vez.";
+      alerta.style.visibility = 'visible';
+      /*alerta_1.textContent = "Error cargando datos. Intente otra vez.";
+      alerta_1.style.visibility = 'visible';*/
       console.error(err);
     }
   }else{
-    alerta_1.textContent = "Por favor, ingrese valores válidos"
-    alerta_1.style.visibility = 'visible';
+    alerta.textContent = "Por favor, ingrese valores válidos"
+    alerta.style.visibility = 'visible';
+    /*alerta_1.textContent = "Por favor, ingrese valores válidos"
+    alerta_1.style.visibility = 'visible';*/
     if (numero_jugadores.value <= 0){
       numero_jugadores.focus();
     }else{
