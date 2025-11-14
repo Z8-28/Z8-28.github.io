@@ -34,8 +34,6 @@ function init_game(){
             key_word.textContent = "Siguiente jugador";
             key_word.style.color = "white";
             key_word.style.fontFamily = 'Times New Roman';
-            //key_word.style.fontFamily = '"Times New Roman", system-ui';
-            //boton.textContent = "Ver palabra";
         }
         else{
             publico = true;
@@ -53,6 +51,7 @@ function asignar(){
         no_jugador.textContent = "#";
         key_word.textContent = "???";
         key_word.style.color = "white";
+        key_word.style.fontFamily = 'Times New Roman';
         //boton.textContent = "Reiniciar";
         boton.textContent = "Continuar";
         exit_btn.textContent = "Home";
