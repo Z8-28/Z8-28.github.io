@@ -14,7 +14,7 @@ function read(){
     console.log(word, players, impostors);
     if (impostors_list){
         console.log(impostors_list.split('-'));
-    }{
+    }else{
         console.log('No hay lista de impostores');
     }
 }

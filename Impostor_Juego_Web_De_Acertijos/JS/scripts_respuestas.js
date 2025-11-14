@@ -19,7 +19,15 @@ function new_game(){
 }
 
 function home(){
+    dell();
     window.location.href = "../index.html";
+}
+
+function dell(){
+    localStorage.removeItem('word');
+    localStorage.removeItem('players');
+    localStorage.removeItem('impostors');
+    localStorage.removeItem('impostor_list');
 }
 
 document.addEventListener('DOMContentLoaded', () => {

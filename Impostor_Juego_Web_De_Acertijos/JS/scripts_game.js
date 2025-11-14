@@ -105,4 +105,5 @@ function dell(){
     localStorage.removeItem('word');
     localStorage.removeItem('players');
     localStorage.removeItem('impostors');
+    localStorage.removeItem('impostor_list');
 }
