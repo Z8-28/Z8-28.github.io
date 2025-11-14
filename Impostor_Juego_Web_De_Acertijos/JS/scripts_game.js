@@ -33,6 +33,8 @@ function init_game(){
             no_jugador.textContent = "#";
             key_word.textContent = "Siguiente jugador";
             key_word.style.color = "white";
+            key_word.style.fontFamily = 'Times New Roman';
+            //key_word.style.fontFamily = '"Times New Roman", system-ui';
             //boton.textContent = "Ver palabra";
         }
         else{
@@ -86,8 +88,12 @@ function get_role(){
 function format(impostor_status){
     if(impostor_status){
         key_word.style.color = "red";
+        key_word.style.fontFamily = '"Creepster", system-ui';
+        key_word.style.fontStyle = "normal";
     }else{
         key_word.style.color = "#00c11aff";
+        key_word.style.fontFamily = '"Sofadi One", system-ui';
+        key_word.style.fontStyle = "normal";
     }
 }
 

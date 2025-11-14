@@ -6,7 +6,9 @@ function see_impostors(){
         let impostor_array = impostors.split('-');
         for (let i = 0; i < impostor_array.length; i++){
             var p = document.createElement('p');
-            p.textContent = `Jugador #${impostor_array[i]}`;
+            p.style.fontFamily = '"Creepster", system-ui';
+            p.style.fontStyle = "normal";
+            p.textContent = `Jugador # ${impostor_array[i]}`;
             impostors_div.appendChild(p);
         }
     }
