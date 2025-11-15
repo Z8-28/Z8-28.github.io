@@ -3,10 +3,17 @@
 }
 
 #impostores{
-    height: 55%;
+    /*height: 55%;*/
+    /*height: clamp(100px, 50vh, 50vh);*/
+    height: 40vh !important;
+    min-height: 100px;
     overflow-y: auto;
 }
 
 #exit{
     top: 10%;
+}
+
+.contenedor{
+    height: 15vh !important;
 }

@@ -1,12 +1,3 @@
-/*p{
-    font-size: min(10vh, 10vw);
-    color: white;
-    margin: 0px;
-    border: none;
-    padding: 0px;
-    text-align: center;
-}*/
-
 p, input, button{
     position: absolute;
     top: 50%;
@@ -15,8 +6,10 @@ p, input, button{
 }
 
 input{
-    font-size: min(7vh, 8vw);
+    /*Fija un valor responsivo, los parametros son: valor_minimo, valor_preferido, valor_maximo*/
+    font-size: clamp(14px, min(7vh, 8vw), 40px);
     width: 90%;
+    max-width: 300px;
     margin:0px;
     border: none;
     border-radius: 10px;
@@ -27,12 +20,11 @@ input{
     height: 25% !important;
 }
 
-#contenedor_numero{
+.contenedor_numero{
     height: 50%;
 }
 
-/*#alerta_1, #alerta_2, */#alerta {
-    /*font-size: min(5vh, 8vw);*/
+#alerta {
     font-size: min(25px, 5vh, 8vw);
     color: red;
     top: 50%;
